@@ -1,3 +1,11 @@
 import './style.css';
+import headerCont from './header';
 
-console.log('test');
+// Header
+const header = document.querySelector('header');
+header.innerHTML = headerCont;
+
+// Sidebar
+
+
+// Content
