@@ -1,6 +1,6 @@
 import './style.css';
 import headerCont from './header';
-import sidebarCont from './sidebar';
+import * as sidebarMod from './sidebar';
 
 // Header
 const header = document.querySelector('header');
@@ -8,6 +8,7 @@ header.innerHTML = headerCont;
 
 // Sidebar
 const sidebar = document.getElementById('sidebar');
-sidebar.innerHTML = sidebarCont;
+sidebar.innerHTML = sidebarMod.sidebarCont;
+sidebarMod.buildList();
 
 // Content
