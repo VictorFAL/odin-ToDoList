@@ -1,5 +1,6 @@
 import addIcon from './assets/imgs/addSide.svg';
 import Project from './project';
+import storageAvailable from './storage';
 
 
 let sidebarCont = ` <div>
@@ -24,14 +25,19 @@ function buildList() {
         // Adding a Project
         input.addEventListener('keypress', function(e) {
             if(e.key === 'Enter') {
-                let p = document.createElement('p');
-                p.innerText = input.value;
-                lstProj.appendChild(p)
-                let newProj = Project(input.value);
-                // TODO: Add project to storage
+                if(storageAvailable('localStorage')) {
+                    let p = document.createElement('p');
+                    p.innerText = input.value;
+                    lstProj.appendChild(p)
+                    let newProj = Project(input.value);
+                    // Add project to storage
+                    localStorage.setItem(newProj.name, JSON.stringify(newProj.itemArray));
 
-                addProj.disabled = false;
-                input.remove();
+                    addProj.disabled = false;
+                    input.remove();
+                } else {
+                    alert("Local Storagenot supported, try another browser.");
+                }
             }
         });
     });
