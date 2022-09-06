@@ -9,6 +9,7 @@ header.innerHTML = headerCont;
 // Sidebar
 const sidebar = document.getElementById('sidebar');
 sidebar.innerHTML = sidebarMod.sidebarCont;
-sidebarMod.buildList();
+sidebarMod.addProject();
+sidebarMod.popList();
 
 // Content

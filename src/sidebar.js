@@ -12,7 +12,8 @@ let sidebarCont = ` <div>
                     <div id="project-list"></div>`;
 
 
-function buildList() {
+// Add projet to the list and storage by clicking the button
+function addProject() {
     const addProj = document.getElementById('project-add');
     const lstProj = document.getElementById('project-list');
 
@@ -22,25 +23,44 @@ function buildList() {
         input.focus();
         addProj.disabled = true;
 
-        // Adding a Project
+        // Adding a Project on Enter keypress
         input.addEventListener('keypress', function(e) {
             if(e.key === 'Enter') {
                 if(storageAvailable('localStorage')) {
                     let p = document.createElement('p');
                     p.innerText = input.value;
-                    lstProj.appendChild(p)
+                    lstProj.appendChild(p);
                     let newProj = Project(input.value);
                     // Add project to storage
-                    localStorage.setItem(newProj.name, JSON.stringify(newProj.itemArray));
+                    let itemArray = JSON.stringify(newProj.itemArray);
+                    localStorage.setItem(newProj.name, itemArray);
 
                     addProj.disabled = false;
                     input.remove();
                 } else {
-                    alert("Local Storagenot supported, try another browser.");
+                    alert("Local Storage not supported, try another browser.");
                 }
             }
         });
     });
 }
 
-export { sidebarCont, buildList }
+
+// Populate porject list with localStorage
+function popList() {
+    window.onload = function() {
+        if(localStorage.length > 0) {
+            const lstProj = document.getElementById('project-list'); 
+
+            let keys = Object.keys(localStorage);
+            for(let key of keys) {
+                // console.log(`${key}: ${localStorage.getItem(key)}`);
+                let p = document.createElement('p');
+                p.innerText = key;
+                lstProj.appendChild(p);
+            }
+        }
+    }
+}
+
+export { sidebarCont, addProject, popList }
