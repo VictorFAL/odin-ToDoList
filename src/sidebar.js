@@ -45,6 +45,13 @@ function addProject() {
     });
 }
 
+// Add click events to project p
+function projectEvent(p) {
+    p.addEventListener('click', () => {
+        // TODO: Populate content section
+    });
+}
+
 
 // Populate porject list with localStorage
 function popList() {
