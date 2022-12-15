@@ -1,12 +1,12 @@
 const customAlert = (() => {
     let dialog = `  <div id="alert-bg"></div>
-                        <div id="alert-box">
-                            <div>
-                                <div id="alert-header"></div>
-                                <div id="alert-body"></div>
-                                <div id="alert-footer"></div>
-                            </div>
-                        </div>`;
+                    <div id="alert-box">
+                        <div>
+                            <div id="alert-header"></div>
+                            <div id="alert-body"></div>
+                            <div id="alert-footer"></div>
+                        </div>
+                    </div>`;
 
     const alertBg = document.getElementById('alert-bg');
     const alertBox = document.getElementById('alert-box');
@@ -32,7 +32,7 @@ const customAlert = (() => {
             alertHeader.innerHTML = `${title}`;
         }
         alertBody.innerHTML = `${content}`;
-        alertFoot.innerHTML =`<button class="alert-OK" onclick="customAlert.ok()">OK</button>`;
+        alertFoot.innerHTML =`<button id="alert-ok" onclick="customAlert.ok()">OK</button>`;
     }
 
     ok = () => {

@@ -21,7 +21,16 @@ function addProject() {
 
     addProj.addEventListener('click', () => {
         customAlert.alert('<input id="proj-input">', "<h3>Insert the project's name</h3>");
-        //CREATE CSS STYLES + STORAGE FUNCTIONALITY
+        let input = document.getElementById('proj-input');
+        input.focus();
+        addProj.disabled = true;
+
+        let okBtn = document.querySelector('#alert-ok');
+        okBtn.addEventListener('click', () => {
+            if(input.value != '') {
+                console.log(input.value);
+            }
+        });
     });
 
     // addProj.addEventListener('click', () => {

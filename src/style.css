@@ -84,7 +84,7 @@ header > img {
     margin-right: calc((var(--padding) / 2) * -1);
 }
 
-#project-list > input {
+/* #project-list > input {
     width: 100%;
     height: 24px;
     outline: none;
@@ -94,7 +94,7 @@ header > img {
     color: #EEEEEE;
     font-family: Raleway;
     font-size: 16px;
-}
+} */
 
 #project-list > p {
     line-height: 32px;
@@ -118,6 +118,49 @@ header > img {
     padding-left: var(--padding);
     z-index: 1;
 }
+
+/* Custom Alert */
+#alert-bg {
+    display: none;
+    position: fixed;
+    opacity: 0.8;
+    top: 0px;
+    left: 0px;
+    background-color: #707070;
+    width: 100vw;
+    z-index: 4;
+}
+
+#alert-box {
+    display: none;
+    position: absolute;
+    background-color: #303841;
+    border-radius: 7px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.6);
+    width: 40%;
+    z-index: 5;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+#alert-header {
+    background-color: #3A4750;
+}
+
+#alert-footer > button {
+    background-color: #F6C90E;
+    color: #3A4750;
+    border-radius: 5px;
+    width: 16px;
+    transition: background-color 0.3s;
+}
+
+#alert-footer > button:hover {
+    background-color: #f5d65c;
+}
+
 
 /* Pelette */
 /*
