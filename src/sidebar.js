@@ -23,7 +23,6 @@ function addProject() {
         customAlert.alert('<input id="proj-input">', "<h3>Insert the project's name</h3>");
         let input = document.getElementById('proj-input');
         input.focus();
-        addProj.disabled = true;
 
         let okBtn = document.querySelector('#alert-ok');
         okBtn.addEventListener('click', () => {

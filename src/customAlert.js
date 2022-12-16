@@ -1,30 +1,33 @@
 const customAlert = (() => {
     let dialog = `  <div id="alert-bg"></div>
-                    <div id="alert-box">
-                        <div>
+                    <div id="alert-container">
+                        <div id="alert-box">
                             <div id="alert-header"></div>
                             <div id="alert-body"></div>
-                            <div id="alert-footer"></div>
+                            <div id="alert-footer">
+                                <button id="alert-ok">OK</button>
+                            </div>
                         </div>
-                    </div>`;
+                    <div>`;
+    
 
-    const alertBg = document.getElementById('alert-bg');
-    const alertBox = document.getElementById('alert-box');
-    const alertHeader = document.getElementById('alert-header');
-    const alertBody = document.getElementById('alert-body');
-    const alertFoot = document.getElementById('alert-footer');
+    let alert = (content, title) => {
+        document.body.innerHTML += dialog;
 
-    alert = (content, title) => {
-        document.body.innerHTML = document.body.innerHTML + dialog;
-
-        let height = window.innerHeight;
-        alertBg.style.height = height + 'px';
-
-        alertBox.style.top = "100px";
+        const alertBg = document.getElementById('alert-bg');
+        const alertCont = document.getElementById('alert-container');
+        const alertBox = document.getElementById('alert-box');
+        const alertHeader = document.getElementById('alert-header');
+        const alertBody = document.getElementById('alert-body');
 
         alertBg.style.display = 'block';
-        alertBox.style.display = 'block';
-        alertHeader.style.display = 'block';
+
+        alertCont.style.display = 'flex';
+        alertCont.style.justifyContent = 'center';
+        alertCont.style.alignItems = 'center';
+
+        alertBox.style.display = 'flex';
+        alertBox.style.flexDirection = 'column';
 
         if(title === undefined) {
             alertHeader.style.display = 'none';
@@ -32,15 +35,15 @@ const customAlert = (() => {
             alertHeader.innerHTML = `${title}`;
         }
         alertBody.innerHTML = `${content}`;
-        alertFoot.innerHTML =`<button id="alert-ok" onclick="customAlert.ok()">OK</button>`;
+
+        let btnOk = document.getElementById('alert-ok');
+        btnOk.addEventListener('click', () => {
+            alertBg.style.display = 'none';
+            alertCont.style.display = 'none';
+        })
     }
 
-    ok = () => {
-        alertBox.style.display = 'none';
-        alertBg.style.display = 'none';
-    }
-
-    return {alert, ok};
+    return {alert};
 })();
 
 export default customAlert;
