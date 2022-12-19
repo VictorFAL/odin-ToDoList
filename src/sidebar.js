@@ -28,43 +28,23 @@ function addProject() {
         okBtn.addEventListener('click', () => {
             if(input.value != '') {
                 console.log(input.value);
+
+                if(storageAvailable('localStorage')) {
+                    let p = document.createElement('p');
+                    p.innerText = input.value;
+                    lstProj.appendChild(p);
+                    let newProj = Project(input.value);
+                    // Add project to storage
+                    let itemArray = JSON.stringify(newProj.itemArray);
+                    localStorage.setItem(newProj.name, itemArray);
+                
+                } else {
+                    alert("Local Storage not supported, try another browser.");
+                }
             }
         });
     });
-
-    // addProj.addEventListener('click', () => {
-    //     const input = document.createElement('input');
-    //     lstProj.appendChild(input);
-    //     input.focus();
-    //     addProj.disabled = true;
-
-    //     // Adding a Project on Enter keypress
-    //     input.addEventListener('keypress', function(e) {
-    //         if(e.key === 'Enter') {
-    //             if(storageAvailable('localStorage')) {
-    //                 let p = document.createElement('p');
-    //                 p.innerText = input.value;
-    //                 lstProj.appendChild(p);
-    //                 let newProj = Project(input.value);
-    //                 // Add project to storage
-    //                 let itemArray = JSON.stringify(newProj.itemArray);
-    //                 localStorage.setItem(newProj.name, itemArray);
-
-    //                 addProj.disabled = false;
-    //                 input.remove();
-
-    //             } else {
-    //                 alert("Local Storage not supported, try another browser.");
-    //             }
-    //         }
-    //     });
-    // });
 }
-
-// Add click events to project p
-// function projectEvent(p) {
-//     p.addEventListener('click', populateContent(p));
-// }
 
 
 // Populate porject list with localStorage

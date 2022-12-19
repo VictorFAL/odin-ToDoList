@@ -1,21 +1,20 @@
 const customAlert = (() => {
-    let dialog = `  <div id="alert-bg"></div>
-                    <div id="alert-container">
-                        <div id="alert-box">
-                            <div id="alert-header"></div>
-                            <div id="alert-body"></div>
-                            <div id="alert-footer">
-                                <button id="alert-ok">OK</button>
-                            </div>
+    const alertBg = document.getElementById('alert-bg');
+    const alertCont = document.getElementById('alert-container');
+
+
+    let dialog = `  <div id="alert-box">
+                        <div id="alert-header"></div>
+                        <div id="alert-body"></div>
+                        <div id="alert-footer">
+                            <button id="alert-ok">OK</button>
                         </div>
-                    <div>`;
+                    </div>`;
     
 
     let alert = (content, title) => {
-        document.body.innerHTML += dialog;
-
-        const alertBg = document.getElementById('alert-bg');
-        const alertCont = document.getElementById('alert-container');
+        alertCont.innerHTML += dialog;
+        
         const alertBox = document.getElementById('alert-box');
         const alertHeader = document.getElementById('alert-header');
         const alertBody = document.getElementById('alert-body');
