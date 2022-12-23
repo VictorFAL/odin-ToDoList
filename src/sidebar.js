@@ -2,8 +2,7 @@ import addIcon from './assets/imgs/addSide.svg';
 import Project from './project';
 import storageAvailable from './storage'
 import customAlert from './customAlert';
-import populateContent from './content';
-
+import popContent from './content';
 
 let sidebarCont = ` <div>
                         <h2>Projects</h2>
@@ -27,8 +26,6 @@ function addProject() {
         let okBtn = document.querySelector('#alert-ok');
         okBtn.addEventListener('click', () => {
             if(input.value != '') {
-                console.log(input.value);
-
                 if(storageAvailable('localStorage')) {
                     let p = document.createElement('p');
                     p.innerText = input.value;
@@ -37,7 +34,9 @@ function addProject() {
                     // Add project to storage
                     let itemArray = JSON.stringify(newProj.itemArray);
                     localStorage.setItem(newProj.name, itemArray);
-                
+
+                    // Add click event to project
+                    popContent(p);
                 } else {
                     alert("Local Storage not supported, try another browser.");
                 }
@@ -47,7 +46,7 @@ function addProject() {
 }
 
 
-// Populate porject list with localStorage
+// Populate project list with localStorage
 function popList() {
     window.onload = function() {
         if(localStorage.length > 0) {
@@ -59,6 +58,9 @@ function popList() {
                 let p = document.createElement('p');
                 p.innerText = key;
                 lstProj.appendChild(p);
+
+                // Add click events when page loads
+                popContent(p);
             }
         }
     }

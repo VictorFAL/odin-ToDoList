@@ -1,8 +1,10 @@
-function populateContent(p) {
+function popContent(p) {
     const content = document.getElementById('content');
-
-    let cont = `<h2>${p.innerText}</h2>`;
-    content.innerHTML = cont;
+    
+    p.addEventListener('click', () => {
+        let cont = `<h2>${p.innerText}</h2>`;
+        content.innerHTML = cont;
+    });
 }
 
-export default populateContent;
+export default popContent;
