@@ -54,7 +54,7 @@ function popList() {
 
             let keys = Object.keys(localStorage);
             for(let key of keys) {
-                // console.log(`${key}: ${localStorage.getItem(key)}`);
+                console.log(`${key}: ${localStorage.getItem(key)}`);
                 let p = document.createElement('p');
                 p.innerText = key;
                 lstProj.appendChild(p);
