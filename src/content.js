@@ -1,9 +1,11 @@
 import customAlert from "./customAlert";
 
-function popContent(p) {
+function popEvents(div) {
     const content = document.getElementById('content');
-    
-    p.addEventListener('click', () => {
+    let p = div.querySelector('p');
+    let delIcon = div.querySelector('svg');
+
+    function popContent() {
         let cont = `   <div>
                             <h2>${p.innerText}</h2>
                             <button id="task-add">Add Task</button>
@@ -20,16 +22,26 @@ function popContent(p) {
             let okBtn = document.querySelector('#alert-ok');
             okBtn.addEventListener('click', () => {
                 if(input.value != '') {
-                    //Add task to project in local storage
+                    //TODO: Add task to project in local storage
                 }
             });
         });
 
         let tasks = localStorage.getItem(p.innerText);
         if(tasks.length > 0) {
-            //Populate tasks
+            //TODO: Populate tasks
         }
+    }
+    
+    div.addEventListener('click', popContent);
+
+
+    delIcon.addEventListener('click', () => {
+        div.removeEventListener('click', popContent);
+        div.remove();
+        //TODO: Remove project from localStorage
+        localStorage.removeItem(p.innerText);
     });
 }
 
-export default popContent;
+export default popEvents;

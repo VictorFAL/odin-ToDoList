@@ -84,18 +84,36 @@ header > img {
     margin-right: calc((var(--padding) / 2) * -1);
 }
 
-#project-list > p {
-    line-height: 32px;
-    margin: 0px;
+#project-list > div {
+    display: flex;
+    flex-direction: row;
     height: 32px;
-    cursor: pointer;
     transition: background-color 0.5s;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#project-list > div:hover {
+    background-color: #303841;
+    cursor: pointer;
+}
+
+
+#project-list > div > p {
+    margin: 0px;
     padding-left: var(--padding);
     font-weight: 500;
 }
 
-#project-list > p:hover {
-    background-color: #303841;
+#project-list > div > svg {
+    transform: scale(0.45);
+    fill: #EEEEEE;
+    transition: fill 0.3s;
+}
+
+#project-list > div > svg:hover {
+    fill: red;
 }
 
 /* Content */
