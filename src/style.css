@@ -109,11 +109,16 @@ header > img {
 #project-list > div > svg {
     transform: scale(0.45);
     fill: #EEEEEE;
-    transition: fill 0.3s;
+    transition: fill 0.3s, opacity 0.5s;
+    opacity: 0;
 }
 
 #project-list > div > svg:hover {
     fill: red;
+}
+
+#project-list > div:hover > svg{
+    opacity: 1;
 }
 
 /* Content */

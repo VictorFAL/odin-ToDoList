@@ -39,8 +39,8 @@ function addProject() {
                     div.innerHTML += deleteIcon;
                     let newProj = Project(input.value);
                     // Add project to storage
-                    let itemArray = JSON.stringify(newProj.itemArray);
-                    localStorage.setItem(newProj.name, itemArray);
+                    let taskArray = JSON.stringify(newProj.taskArray);
+                    localStorage.setItem(newProj.name, taskArray);
 
                     // Add click event to project
                     popEvents(div);
@@ -61,7 +61,9 @@ function popList() {
 
             let keys = Object.keys(localStorage);
             for(let key of keys) {
+                // ====================TEST===========================
                 console.log(`${key}: ${localStorage.getItem(key)}`);
+                // ===================================================
                 let div = document.createElement('div');
                 let p = document.createElement('p');
                 p.innerText = key;

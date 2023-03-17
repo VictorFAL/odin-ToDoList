@@ -21,6 +21,11 @@ function popEvents(div) {
 
             let okBtn = document.querySelector('#alert-ok');
             okBtn.addEventListener('click', () => {
+                //==================TEST===================
+                let taskArr = localStorage.getItem(p.innerText);
+                console.log(`${taskArr} - ${typeof taskArr}`);
+                console.log(`${JSON.parse('["test", "test2"]')}`);
+                //=========================================
                 if(input.value != '') {
                     //TODO: Add task to project in local storage
                 }
@@ -35,11 +40,10 @@ function popEvents(div) {
     
     div.addEventListener('click', popContent);
 
-
+    // Delete project
     delIcon.addEventListener('click', () => {
         div.removeEventListener('click', popContent);
         div.remove();
-        //TODO: Remove project from localStorage
         localStorage.removeItem(p.innerText);
     });
 }
