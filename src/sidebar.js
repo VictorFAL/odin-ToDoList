@@ -39,8 +39,8 @@ function addProject() {
                     div.innerHTML += deleteIcon;
                     let newProj = Project(input.value);
                     // Add project to storage
-                    let taskArray = JSON.stringify(newProj.taskArray);
-                    localStorage.setItem(newProj.name, taskArray);
+                    let tasks = JSON.stringify(newProj.tasks);
+                    localStorage.setItem(newProj.name, tasks);
 
                     // Add click event to project
                     popEvents(div);

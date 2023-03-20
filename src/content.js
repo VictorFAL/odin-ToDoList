@@ -15,19 +15,27 @@ function popEvents(div) {
 
         let addTask = document.getElementById('task-add');
         addTask.addEventListener('click', () => {
-            customAlert.alert('<input id="task-input">', "<h3>Insert a task</h3>");
-            let input = document.getElementById('task-input');
-            input.focus();
+            customAlert.alert(` <input id="task-title">
+                                <textarea id="task-desc"></textarea>
+                                <input type="date" id="task-date">
+                                <select id="task-priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                </select>`, 
+            "<h3>Insert a task</h3>");
+            let taskTitle = document.getElementById('task-title');
+            taskTitle.focus();
 
             let okBtn = document.querySelector('#alert-ok');
             okBtn.addEventListener('click', () => {
-                //==================TEST===================
-                let taskArr = localStorage.getItem(p.innerText);
-                console.log(`${taskArr} - ${typeof taskArr}`);
-                console.log(`${JSON.parse('["test", "test2"]')}`);
-                //=========================================
-                if(input.value != '') {
+                if(taskTitle.value != '') {
                     //TODO: Add task to project in local storage
+
+                    //==================TEST===================
+                    let tasks = localStorage.getItem(p.innerText);
+                
+                    //=========================================
                 }
             });
         });

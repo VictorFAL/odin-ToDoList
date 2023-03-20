@@ -1,6 +1,6 @@
 function Project(name) {
-    let taskArray = [];
-    return {name, taskArray};
+    let tasks = {};
+    return {name, tasks};
 }
 
 export default Project;
