@@ -15,14 +15,26 @@ function popEvents(div) {
 
         let addTask = document.getElementById('task-add');
         addTask.addEventListener('click', () => {
-            customAlert.alert(` <input id="task-title">
-                                <textarea id="task-desc"></textarea>
-                                <input type="date" id="task-date">
-                                <select id="task-priority">
-                                    <option value="low">Low</option>
-                                    <option value="medium" selected>Medium</option>
-                                    <option value="high">High</option>
-                                </select>`, 
+            customAlert.alert(` <div class="task-prop">
+                                    <label for="task-title">Title</label><br>
+                                    <input id="task-title">
+                                </div>
+                                <div class="task-prop">
+                                    <label for="task-desc">Description</label><br>
+                                    <textarea id="task-desc" cols="40" rows="5"></textarea>
+                                </div>
+                                <div class="task-prop">
+                                    <label for="task-date">Due Date</label><br>
+                                    <input type="date" id="task-date">
+                                </div>
+                                <div class="task-prop">
+                                    <label for="task-priority">Priority</label><br>
+                                    <select id="task-priority">
+                                        <option value="low">Low</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>`, 
             "<h3>Insert a task</h3>");
             let taskTitle = document.getElementById('task-title');
             taskTitle.focus();

@@ -199,12 +199,17 @@ header > img {
 
 #alert-body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 0px var(--padding);
     margin: 16px 0px;
 }
 
-#alert-body > input {
+.task-prop {
+    margin-bottom: 12px;
+}
+
+.task-prop > input {
     outline: none;
     width: 100%;
     border: none;
@@ -214,15 +219,19 @@ header > img {
     height: 20px;
 }
 
-#alert-body > input:focus {
+.task-prop > input:focus {
     outline: #EEEEEE solid 1px;
+}
+
+.task-prop > textarea {
+    resize: none;
 }
 
 #alert-footer {
     display: flex;
     padding: 8px var(--padding);
     padding-top: 0px;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 #alert-footer > button {

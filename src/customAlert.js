@@ -7,6 +7,7 @@ const customAlert = (() => {
                         <div id="alert-header"></div>
                         <div id="alert-body"></div>
                         <div id="alert-footer">
+                            <button id="alert-cancel">Cancel</button>
                             <button id="alert-ok">OK</button>
                         </div>
                     </div>`;
@@ -37,6 +38,12 @@ const customAlert = (() => {
 
         let btnOk = document.getElementById('alert-ok');
         btnOk.addEventListener('click', () => {
+            alertBg.style.display = 'none';
+            alertCont.style.display = 'none';
+        })
+
+        let btnCancel = document.getElementById('alert-cancel');
+        btnCancel.addEventListener('click', () => {
             alertBg.style.display = 'none';
             alertCont.style.display = 'none';
         })
