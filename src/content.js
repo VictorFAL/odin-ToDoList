@@ -1,4 +1,5 @@
 import customAlert from "./customAlert";
+import Task from "./task";
 
 function popEvents(div) {
     const content = document.getElementById('content');
@@ -36,17 +37,24 @@ function popEvents(div) {
                                     </select>
                                 </div>`, 
             "<h3>Insert a task</h3>");
-            let taskTitle = document.getElementById('task-title');
-            taskTitle.focus();
+
+            let title = document.getElementById('task-title');
+            title.focus();
+            let desc = document.getElementById('task-desc');
+            let date = document.getElementById('task-date');
+            let prio = document.getElementById('task-priority');
 
             let okBtn = document.querySelector('#alert-ok');
             okBtn.addEventListener('click', () => {
-                if(taskTitle.value != '') {
+                if(title.value != '') {
                     //TODO: Add task to project in local storage
+                    let newTask = Task(title.value, desc.value, date.value, prio.value);
+                    let project = localStorage.getItem(p.innerText);
+
+                    project[newTask.title] = JSON.stringify(newTask);
 
                     //==================TEST===================
-                    let tasks = localStorage.getItem(p.innerText);
-                
+                    console.log(localStorage.getItem(p.innerText));
                     //=========================================
                 }
             });
@@ -64,6 +72,7 @@ function popEvents(div) {
     delIcon.addEventListener('click', () => {
         div.removeEventListener('click', popContent);
         div.remove();
+        content.innerHTML = '';
         localStorage.removeItem(p.innerText);
     });
 }

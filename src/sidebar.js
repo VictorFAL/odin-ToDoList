@@ -34,9 +34,11 @@ function addProject() {
                     let div = document.createElement('div');
                     let p = document.createElement('p');
                     p.innerText = input.value;
+
                     lstProj.appendChild(div);
                     div.appendChild(p);
                     div.innerHTML += deleteIcon;
+
                     let newProj = Project(input.value);
                     // Add project to storage
                     let tasks = JSON.stringify(newProj.tasks);
@@ -56,9 +58,9 @@ function addProject() {
 // Populate project list with localStorage
 function popList() {
     window.onload = function() {
-        if(localStorage.length > 0) {
-            const lstProj = document.getElementById('project-list'); 
+        const lstProj = document.getElementById('project-list');
 
+        if(localStorage.length > 0) {
             let keys = Object.keys(localStorage);
             for(let key of keys) {
                 // ====================TEST===========================
@@ -67,6 +69,7 @@ function popList() {
                 let div = document.createElement('div');
                 let p = document.createElement('p');
                 p.innerText = key;
+
                 lstProj.appendChild(div);
                 div.appendChild(p);
                 div.innerHTML += deleteIcon;
@@ -74,6 +77,23 @@ function popList() {
                 // Add click events when page loads
                 popEvents(div);
             }
+        } else {
+            // Create Default project if localStorage is empty
+            let newProj = Project('Default');
+            // Add project to storage
+            let tasks = JSON.stringify(newProj.tasks);
+            localStorage.setItem(newProj.name, tasks);
+
+            let div = document.createElement('div');
+            let p = document.createElement('p');
+            p.innerText = newProj.name;
+
+            lstProj.appendChild(div);
+            div.appendChild(p);
+            div.innerHTML += deleteIcon;
+
+            // Add click event to project
+            popEvents(div);
         }
     }
 }
