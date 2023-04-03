@@ -49,13 +49,11 @@ function popEvents(div) {
                 if(title.value != '') {
                     //TODO: Add task to project in local storage
                     let newTask = Task(title.value, desc.value, date.value, prio.value);
-                    let project = localStorage.getItem(p.innerText);
+                    let projectTasks = localStorage.getItem(p.innerText);
+                    let parsedTasks = JSON.parse(projectTasks);
 
-                    project[newTask.title] = JSON.stringify(newTask);
-
-                    //==================TEST===================
-                    console.log(localStorage.getItem(p.innerText));
-                    //=========================================
+                    parsedTasks[newTask.title] = newTask;
+                    localStorage.setItem(p.innerText, JSON.stringify(parsedTasks));
                 }
             });
         });
