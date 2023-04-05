@@ -63,9 +63,6 @@ function popList() {
         if(localStorage.length > 0) {
             let keys = Object.keys(localStorage);
             for(let key of keys) {
-                // ====================TEST===========================
-                console.log(`${key}: ${localStorage.getItem(key)}`);
-                // ===================================================
                 let div = document.createElement('div');
                 let p = document.createElement('p');
                 p.innerText = key;

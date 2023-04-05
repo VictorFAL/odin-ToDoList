@@ -47,7 +47,7 @@ function popEvents(div) {
             let okBtn = document.querySelector('#alert-ok');
             okBtn.addEventListener('click', () => {
                 if(title.value != '') {
-                    //TODO: Add task to project in local storage
+                    // Add task to project in local storage
                     let newTask = Task(title.value, desc.value, date.value, prio.value);
                     let projectTasks = localStorage.getItem(p.innerText);
                     let parsedTasks = JSON.parse(projectTasks);
@@ -59,8 +59,20 @@ function popEvents(div) {
         });
 
         let tasks = localStorage.getItem(p.innerText);
+
         if(tasks.length > 0) {
-            //TODO: Populate tasks
+            // Populate tasks
+            let lstTasks = document.getElementById('task-list');
+            let keys = Object.keys(JSON.parse(tasks));
+
+            for(let key of keys) {
+                let div = document.createElement('div');
+                let p = document.createElement('p');
+                p.innerText = key;
+
+                lstTasks.appendChild(div);
+                div.appendChild(p);
+            }
         }
     }
     
