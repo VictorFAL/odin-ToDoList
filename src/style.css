@@ -12,8 +12,8 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 20% auto;
-    grid-template-rows: 12% auto;
+    grid-template-columns: 280px auto;
+    grid-template-rows: 80px auto;
     font-family: Raleway;
     color: #EEEEEE;
 }
@@ -157,6 +157,30 @@ header > img {
 
 #task-add:active {
     box-shadow: none;
+}
+
+#task-list {
+    margin-left: calc(var(--padding) * -1);
+    margin-right: calc(var(--padding) * -1);
+}
+
+#task-list > div {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    transition: background-color 0.5s;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#task-list > div:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: linear-gradient(90deg, rgba(58,71,80,1) 0%, rgba(48,56,65,1) 40%); */
+}
+
+#task-list > div > p {
+    padding: 0px var(--padding);
 }
 
 /* Custom Alert */
