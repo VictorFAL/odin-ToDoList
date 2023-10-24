@@ -59,19 +59,36 @@ function popEvents(div) {
         });
 
         let tasks = localStorage.getItem(p.innerText);
+        console.log(tasks);
 
         if(tasks.length > 0) {
             // Populate tasks
             let lstTasks = document.getElementById('task-list');
-            let keys = Object.keys(JSON.parse(tasks));
+            let parsedTasks = JSON.parse(tasks);
+            let keys = Object.keys(parsedTasks);
 
             for(let key of keys) {
                 let div = document.createElement('div');
                 let p = document.createElement('p');
                 p.innerText = key;
-
                 lstTasks.appendChild(div);
                 div.appendChild(p);
+
+                // Display task info when clicked
+                let task = parsedTasks[key];
+
+                div.addEventListener('click', () => {
+                    customAlert.alert(` <div class="task-prop">
+                                            <span>${task.desc}</span>
+                                        </div>
+                                        <div class="task-prop">
+                                            <span>${task.dueDate}</span>
+                                        </div>
+                                        <div class="task-prop">
+                                            <span>${task.priority}</span>
+                                        </div>`, 
+                    `<h3>${key}</h3>`);
+                });
             }
         }
     }
