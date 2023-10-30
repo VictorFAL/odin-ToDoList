@@ -23,7 +23,7 @@ function addProject() {
     const lstProj = document.getElementById('project-list');
 
     addProj.addEventListener('click', () => {
-        customAlert.alert('<input id="proj-input">', "<h3>Insert the project's name</h3>");
+        customAlert.alert("<h3>Insert the project's name</h3>", '<input id="proj-input">');
         let input = document.getElementById('proj-input');
         input.focus();
 

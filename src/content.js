@@ -16,7 +16,8 @@ function popEvents(div) {
 
         let addTask = document.getElementById('task-add');
         addTask.addEventListener('click', () => {
-            customAlert.alert(` <div class="task-prop">
+            customAlert.alert("<h3>Insert a task</h3>",
+                                `<div class="task-prop">
                                     <label for="task-title">Title</label><br>
                                     <input id="task-title">
                                 </div>
@@ -35,8 +36,8 @@ function popEvents(div) {
                                         <option value="medium" selected>Medium</option>
                                         <option value="high">High</option>
                                     </select>
-                                </div>`, 
-            "<h3>Insert a task</h3>");
+                                </div>`
+            );
 
             let title = document.getElementById('task-title');
             title.focus();
@@ -78,7 +79,9 @@ function popEvents(div) {
                 let task = parsedTasks[key];
 
                 div.addEventListener('click', () => {
-                    customAlert.alert(` <div class="task-prop">
+                    // TODO: Adjust layout
+                    customAlert.alert(`<h3>${key}</h3>`,
+                                        `<div class="task-prop">
                                             <span>${task.desc}</span>
                                         </div>
                                         <div class="task-prop">
@@ -87,8 +90,11 @@ function popEvents(div) {
                                         <div class="task-prop">
                                             <span>${task.priority}</span>
                                         </div>`, 
-                    `<h3>${key}</h3>`);
+                                        true
+                    );
                 });
+
+                // TODO: Create a delete button to delete task
             }
         }
     }

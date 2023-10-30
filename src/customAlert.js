@@ -13,7 +13,7 @@ const customAlert = (() => {
                     </div>`;
     
 
-    let alert = (content, title) => {
+    let alert = (title, content, deleteBtn) => {
         alertCont.innerHTML += dialog;
         
         const alertBox = document.getElementById('alert-box');
@@ -29,13 +29,6 @@ const customAlert = (() => {
         alertBox.style.display = 'flex';
         alertBox.style.flexDirection = 'column';
 
-        if(title === undefined) {
-            alertHeader.style.display = 'none';
-        } else {
-            alertHeader.innerHTML = `${title}`;
-        }
-        alertBody.innerHTML = `${content}`;
-
         let btnOk = document.getElementById('alert-ok');
         btnOk.addEventListener('click', () => {
             alertBg.style.display = 'none';
@@ -47,6 +40,20 @@ const customAlert = (() => {
             alertBg.style.display = 'none';
             alertCont.style.display = 'none';
         })
+
+        if(title === undefined) {
+            alertHeader.style.display = 'none';
+        } else {
+            alertHeader.innerHTML = `${title}`;
+        }
+        alertBody.innerHTML = `${content}`;
+
+        // Replace 'Cancel' button with a 'Delete' button if needed
+        if(deleteBtn === true) {
+            btnCancel.innerText = 'Delete';
+            btnCancel.style.backgroundColor = 'red';
+            // TODO: add delete functionality
+        }
     }
 
     return {alert};
