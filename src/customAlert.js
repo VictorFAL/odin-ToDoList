@@ -13,7 +13,7 @@ const customAlert = (() => {
                     </div>`;
     
 
-    let alert = (title, content, deleteBtn) => {
+    let alert = (title, content, deleteBtn, tasks) => {
         alertCont.innerHTML += dialog;
         
         const alertBox = document.getElementById('alert-box');
@@ -49,10 +49,16 @@ const customAlert = (() => {
         alertBody.innerHTML = `${content}`;
 
         // Replace 'Cancel' button with a 'Delete' button if needed
-        if(deleteBtn === true) {
+        if(deleteBtn == true) {
             btnCancel.innerText = 'Delete';
             btnCancel.style.backgroundColor = 'red';
             // TODO: add delete functionality
+            btnCancel.addEventListener('click', () => {
+                let taskName = title.innerText;
+                delete tasks[taskName];
+
+                
+            });
         }
     }
 

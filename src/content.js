@@ -82,19 +82,20 @@ function popEvents(div) {
                     // TODO: Adjust layout
                     customAlert.alert(`<h3>${key}</h3>`,
                                         `<div class="task-prop">
+                                            <label>Description:</label>
                                             <span>${task.desc}</span>
                                         </div>
                                         <div class="task-prop">
+                                            <label>Due date:</label>
                                             <span>${task.dueDate}</span>
                                         </div>
                                         <div class="task-prop">
+                                            <label>Priority:</label>
                                             <span>${task.priority}</span>
                                         </div>`, 
-                                        true
+                                        true, tasks
                     );
                 });
-
-                // TODO: Create a delete button to delete task
             }
         }
     }
