@@ -1,3 +1,5 @@
+import popContent from "./content";
+
 const customAlert = (() => {
     const alertBg = document.getElementById('alert-bg');
     const alertCont = document.getElementById('alert-container');
@@ -13,7 +15,7 @@ const customAlert = (() => {
                     </div>`;
     
 
-    let alert = (title, content, deleteBtn, tasks) => {
+    let alert = (title, content, tasks, projName) => {
         alertCont.innerHTML += dialog;
         
         const alertBox = document.getElementById('alert-box');
@@ -49,16 +51,20 @@ const customAlert = (() => {
         alertBody.innerHTML = `${content}`;
 
         // Replace 'Cancel' button with a 'Delete' button if needed
-        if(deleteBtn == true) {
+        if(tasks != undefined) {
             btnCancel.innerText = 'Delete';
             btnCancel.style.backgroundColor = 'red';
-            // TODO: add delete functionality
+
+            // TODO: Add "delete task" functionality
             btnCancel.addEventListener('click', () => {
                 let taskName = title.innerText;
                 delete tasks[taskName];
-
-                
-            });
+        
+                console.log(tasks)
+        
+                //TODO: Repopulate tasks with new modified list
+                popContent(projName);
+            }, { once: true });
         }
     }
 

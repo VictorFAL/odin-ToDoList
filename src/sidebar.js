@@ -2,7 +2,7 @@ import addIcon from './assets/imgs/addSide.svg';
 import Project from './project';
 import storageAvailable from './storage'
 import customAlert from './customAlert';
-import popEvents from './content';
+import popProj from './content';
 
 let sidebarCont = ` <div>
                         <h2>Projects</h2>
@@ -45,7 +45,7 @@ function addProject() {
                     localStorage.setItem(newProj.name, tasks);
 
                     // Add click event to project
-                    popEvents(div);
+                    popProj(div);
                 } else {
                     alert("Local Storage not supported, try another browser.");
                 }
@@ -72,7 +72,7 @@ function popList() {
                 div.innerHTML += deleteIcon;
 
                 // Add click events when page loads
-                popEvents(div);
+                popProj(div);
             }
         } else {
             // Create Default project if localStorage is empty
@@ -90,7 +90,7 @@ function popList() {
             div.innerHTML += deleteIcon;
 
             // Add click event to project
-            popEvents(div);
+            popProj(div);
         }
     }
 }
