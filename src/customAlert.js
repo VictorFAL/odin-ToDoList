@@ -1,4 +1,4 @@
-import popContent from "./content";
+import { popContent } from "./content";
 
 const customAlert = (() => {
     const alertBg = document.getElementById('alert-bg');
@@ -63,7 +63,7 @@ const customAlert = (() => {
                 console.log(tasks)
         
                 //TODO: Repopulate tasks with new modified list
-                popContent(projName);
+                //popContent(projName);
             }, { once: true });
         }
     }

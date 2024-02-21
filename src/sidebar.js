@@ -2,7 +2,7 @@ import addIcon from './assets/imgs/addSide.svg';
 import Project from './project';
 import storageAvailable from './storage'
 import customAlert from './customAlert';
-import popProj from './content';
+import { popProj, popContent } from './content';
 
 let sidebarCont = ` <div>
                         <h2>Projects</h2>

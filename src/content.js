@@ -99,6 +99,7 @@ function popProj(div) {
     let p = div.querySelector('p');
     let delIcon = div.querySelector('svg');
     
+    //TODO: Fix event not hhoking to div
     div.addEventListener('click', popContent(p.innerText));
 
     // Delete project
@@ -110,4 +111,4 @@ function popProj(div) {
     });
 }
 
-export default { popProj, popContent };
+export { popProj, popContent };
